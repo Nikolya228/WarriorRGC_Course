@@ -28,6 +28,12 @@ protected:
 
 	virtual void BeginPlay() override;
 
+#pragma region APawn_Interface
+
+	virtual void PossessedBy(AController* NewController) override;
+
+#pragma endregion
+
 #pragma region Components
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))

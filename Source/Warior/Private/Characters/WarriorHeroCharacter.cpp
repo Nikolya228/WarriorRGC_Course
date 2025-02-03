@@ -55,7 +55,17 @@ void AWarriorHeroCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 void AWarriorHeroCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	Debug::Print(TEXT("Working"));
+}
+
+void AWarriorHeroCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	if (WarriorAbilitySystemComponent && WarriorAttributeSet)
+	{
+		const FString ASCText = FString::Printf(TEXT("Owner takoyto"));
+		Debug::Print(TEXT("Ability system component valid") + ASCText);
+	}
 }
 
 void AWarriorHeroCharacter::Input_Move(const FInputActionValue& InputActionValue)
