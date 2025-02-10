@@ -8,6 +8,7 @@
 
 class UWarriorAbilitySystemComponent;
 class UWarriorGameplayAbility;
+class UGameplayEffect;
 /**
  * 
  */
@@ -26,6 +27,9 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "StartUpData")
 	TArray<TSubclassOf<UWarriorGameplayAbility>> ReactivateAbilities;
+
+	UPROPERTY(EditDefaultsOnly, Category = "StartUpData")
+	TArray<TSubclassOf<UGameplayEffect>> StartUpGameplayEffects;
 
 	void GrandAbilities(const TArray<TSubclassOf<UWarriorGameplayAbility>>& InAbilitiesToGive, UWarriorAbilitySystemComponent* InASCToGive, int32 ApplyLevel = 1);
 };

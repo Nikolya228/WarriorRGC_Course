@@ -24,6 +24,12 @@ class WARIOR_API AWarriorHeroCharacter : public AWarriorBaseCharacter
 public:
 	AWarriorHeroCharacter();
 
+#pragma region PawnCombatInterface
+
+	virtual UPawnCombatComponent* GetPawnCombatComponent() const override;
+
+#pragma endregion
+
 protected:
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
