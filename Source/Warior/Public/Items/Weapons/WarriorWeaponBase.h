@@ -23,7 +23,7 @@ public:
 	FOnTargetInteractedDelegate OnWeaponPulledFromTarget;
 
 protected:
-	UPROPERTY(VisibleAnywhere, Category = "Weapons")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly,  Category = "Weapons")
 	UStaticMeshComponent* WeaponMesh;
 
 	UPROPERTY(VisibleAnywhere, Category = "Weapons")
