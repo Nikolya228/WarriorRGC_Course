@@ -8,6 +8,7 @@
 
 class UEnemyCombatComponent;
 class UEnemyUIComponent;
+class UWidgetComponent;
 
 /**
  * 
@@ -35,6 +36,8 @@ public:
 #pragma endregion
 
 protected:
+	virtual void BeginPlay() override;
+
 #pragma region APawn_Interface
 
 	virtual void PossessedBy(AController* NewController) override;
@@ -46,6 +49,10 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "UI")
 	UEnemyUIComponent* EnemyUIComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "UI")
+	UWidgetComponent* EnemyHealthWidgetComponent;
+
 public:
 	FORCEINLINE UEnemyCombatComponent* GetEnemyCombatComponent() const { return EnemyCombatComponent; };
 
