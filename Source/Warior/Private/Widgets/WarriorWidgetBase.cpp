@@ -16,3 +16,15 @@ void UWarriorWidgetBase::NativeOnInitialized()
 		}
 	}
 }
+
+void UWarriorWidgetBase::InitEnemyCreatedWidget(AActor* OwningEnemyActor)
+{
+	if (IPawnUIInterface* PawnUIInterface = Cast<IPawnUIInterface>(OwningEnemyActor))
+	{
+		UEnemyUIComponent* EnemyUIComponent = PawnUIInterface->GetEnemyUIComponent();
+
+		checkf(EnemyUIComponent, TEXT("failed to extract an EnemyUIComponent from %s"), *OwningEnemyActor->GetActorNameOrLabel());
+
+		BP_OnOwningEnemyUIComponentInitialize(EnemyUIComponent);
+	}
+}

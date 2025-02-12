@@ -30,6 +30,8 @@ public:
 
 	virtual UPawnUIComponent* GetPawnUIComponent() const override;
 
+	virtual UEnemyUIComponent* GetEnemyUIComponent() const override;
+
 #pragma endregion
 
 protected:
