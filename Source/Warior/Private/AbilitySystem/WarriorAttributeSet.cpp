@@ -51,7 +51,7 @@ void UWarriorAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCal
 
 		if (UHeroUIComponent* HeroUIComponent = CachedPawnUInterface->GetHeroUIComponent())
 		{
-			HeroUIComponent->OnCurrentHealthChange.Broadcast(GetCurrentRage() / GetMaxRage());
+			HeroUIComponent->OnCurrentRageChange.Broadcast(GetCurrentRage() / GetMaxRage());
 		}
 	}
 
