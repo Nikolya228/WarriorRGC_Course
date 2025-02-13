@@ -5,6 +5,7 @@
 #include "Navigation/CrowdFollowingComponent.h"
 #include "Perception/AIPerceptionComponent.h"
 #include "Perception/AISenseConfig_Sight.h"
+#include "BehaviorTree/BlackboardComponent.h"
 
 AWarriorAIController::AWarriorAIController(const FObjectInitializer& ObjectInitializer) 
 	: Super(ObjectInitializer.SetDefaultSubobjectClass<UCrowdFollowingComponent>(TEXT("PathFollowingComponent")))
@@ -43,6 +44,9 @@ void AWarriorAIController::OnEnemyPerceptionUpdated(AActor* Actor, FAIStimulus S
 {
 	if (Stimulus.WasSuccessfullySensed() && Actor)
 	{
-		UE_LOG(LogTemp, Error, TEXT("Successfuly sensed"));
+		if (UBlackboardComponent* BlackboardComponent = GetBlackboardComponent())
+		{
+			BlackboardComponent->SetValueAsObject(FName("TargetActor"), Actor);
+		}
 	}
 }
