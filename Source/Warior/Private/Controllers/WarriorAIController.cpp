@@ -9,10 +9,6 @@
 AWarriorAIController::AWarriorAIController(const FObjectInitializer& ObjectInitializer) 
 	: Super(ObjectInitializer.SetDefaultSubobjectClass<UCrowdFollowingComponent>(TEXT("PathFollowingComponent")))
 {
-	if (UCrowdFollowingComponent* CrowdComp = Cast<UCrowdFollowingComponent>(GetPathFollowingComponent()))
-	{
-	}
-
 	AISenseConfig_Sight = CreateDefaultSubobject<UAISenseConfig_Sight>(TEXT("EnemySenseConfig_Sight"));
 	AISenseConfig_Sight->DetectionByAffiliation.bDetectEnemies = true;
 	AISenseConfig_Sight->DetectionByAffiliation.bDetectFriendlies = false;
@@ -25,8 +21,28 @@ AWarriorAIController::AWarriorAIController(const FObjectInitializer& ObjectIniti
 	EnemyPerceptionComponent->ConfigureSense(*AISenseConfig_Sight);
 	EnemyPerceptionComponent->SetDominantSense(UAISenseConfig_Sight::StaticClass());
 	EnemyPerceptionComponent->OnTargetPerceptionUpdated.AddDynamic(this, &AWarriorAIController::OnEnemyPerceptionUpdated);
+
+	SetGenericTeamId(FGenericTeamId(1));
+}
+
+ETeamAttitude::Type AWarriorAIController::GetTeamAttitudeTowards(const AActor& Other) const
+{
+	const APawn* PawnToCheck = Cast<const APawn>(&Other);
+
+	const IGenericTeamAgentInterface* OtherTeamAgent =  Cast<const IGenericTeamAgentInterface>(PawnToCheck->GetController());
+
+	if (OtherTeamAgent && OtherTeamAgent->GetGenericTeamId() != GetGenericTeamId())
+	{
+		return ETeamAttitude::Hostile;
+	}
+
+	return ETeamAttitude::Friendly;
 }
 
 void AWarriorAIController::OnEnemyPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus)
 {
+	if (Stimulus.WasSuccessfullySensed() && Actor)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Successfuly sensed"));
+	}
 }

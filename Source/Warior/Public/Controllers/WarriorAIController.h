@@ -19,6 +19,12 @@ class WARIOR_API AWarriorAIController : public AAIController
 public:
 	AWarriorAIController(const FObjectInitializer& ObjectInitializer);
 
+#pragma region IGenericTeamAgentInterface
+
+	virtual ETeamAttitude::Type GetTeamAttitudeTowards(const AActor& Other) const override;
+
+#pragma endregion
+
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UAIPerceptionComponent* EnemyPerceptionComponent;
