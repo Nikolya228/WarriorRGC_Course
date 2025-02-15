@@ -46,6 +46,8 @@ namespace WarriorGameplayTags
 
 	WARIOR_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Enemy_Weapon);
 
+	WARIOR_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Enemy_Status_Strafing);
+
 #pragma endregion
 
 #pragma region SharedTags
