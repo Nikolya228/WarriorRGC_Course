@@ -8,7 +8,7 @@ bool UWarriorBaseAnimInstances::DoesOwnerHaveTag(FGameplayTag TagToCheck)
 {
 	if (APawn* OwningPawn = TryGetPawnOwner())
 	{
-		UWarriorFunctionLibrary::NativeDoesActorHaveTag(OwningPawn, TagToCheck);
+		return UWarriorFunctionLibrary::NativeDoesActorHaveTag(OwningPawn, TagToCheck);
 	}
 
 	return false;
