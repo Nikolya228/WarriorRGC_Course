@@ -63,7 +63,7 @@ EBTNodeResult::Type UBTTask_RotateToFaceTarget::ExecuteTask(UBehaviorTreeCompone
 	if (HasReachedAnglePrecision(OwningPawn, TargetActor))
 	{
 		Memory->Reset();
-		EBTNodeResult::Succeeded;
+		return EBTNodeResult::Succeeded;
 	}
 
 	return EBTNodeResult::InProgress;
