@@ -61,6 +61,10 @@ namespace WarriorGameplayTags
 	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(Shared_SetByCaller_BaseDamage, "Shared.SetByCaller.BaseDamage");
 
 	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(Shared_Status_Death, "Shared.Status.Death");
+	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(Shared_Status_HitReact_Front, "Shared.Status.HitReact.Front");
+	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(Shared_Status_HitReact_Back, "Shared.Status.HitReact.Back");
+	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(Shared_Status_HitReact_Left, "Shared.Status.HitReact.Left");
+	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(Shared_Status_HitReact_Right, "Shared.Status.HitReact.Right");
 
 #pragma endregion
 }

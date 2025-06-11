@@ -64,6 +64,10 @@ namespace WarriorGameplayTags
 	WARIOR_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Shared_SetByCaller_BaseDamage);
 
 	WARIOR_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Shared_Status_Death);
+	WARIOR_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Shared_Status_HitReact_Front);
+	WARIOR_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Shared_Status_HitReact_Left);
+	WARIOR_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Shared_Status_HitReact_Right);
+	WARIOR_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Shared_Status_HitReact_Back);
 
 #pragma endregion
 }
