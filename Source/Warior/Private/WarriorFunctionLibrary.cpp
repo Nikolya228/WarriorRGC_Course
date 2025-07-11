@@ -130,5 +130,5 @@ bool UWarriorFunctionLibrary::IsValidBlock(AActor* InAttacker, AActor* InDefende
 
 	const float DotResult = FVector::DotProduct(InAttacker->GetActorForwardVector(), InDefender->GetActorForwardVector());
 
-	return DotResult < -0.1f ? true : false;
+	return DotResult < -0.1f;
 }
