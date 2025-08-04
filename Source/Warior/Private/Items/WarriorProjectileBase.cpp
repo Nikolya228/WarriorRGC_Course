@@ -5,6 +5,9 @@
 #include "Components/BoxComponent.h"
 #include "NiagaraComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "WarriorFunctionLibrary.h"
+#include "WariorGameplayTags.h"
+#include "AbilitySystemBlueprintLibrary.h"
 
 // Sets default values
 AWarriorProjectileBase::AWarriorProjectileBase()
@@ -49,12 +52,39 @@ void AWarriorProjectileBase::BeginPlay()
 
 void AWarriorProjectileBase::OnProjectileHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	if (OtherActor)
-	{
-		UE_LOG(LogTemp, Error, TEXT("%s"), *OtherActor->GetActorNameOrLabel());
+	BP_OnSpawnProjectileHitFX(Hit.ImpactPoint);
 
+	APawn* HitPawn = Cast<APawn>(OtherActor);
+
+	if (!HitPawn || !UWarriorFunctionLibrary::IsTargetPawnHostile(GetInstigator(), HitPawn))
+	{
 		Destroy();
+		return;
 	}
+
+	bool bIsValidBlock = false;
+
+	const bool bIsPlayerBlocking = UWarriorFunctionLibrary::NativeDoesActorHaveTag(HitPawn, WarriorGameplayTags::Player_Status_Blocking);
+
+	if (bIsPlayerBlocking)
+	{
+		bIsValidBlock = UWarriorFunctionLibrary::IsValidBlock(this, HitPawn);
+	}
+
+	FGameplayEventData Data;
+	Data.Instigator = this;
+	Data.Target = HitPawn;
+
+	if (bIsValidBlock)
+	{
+		UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(HitPawn, WarriorGameplayTags::Player_Event_SuccessfullBlock, Data);
+	}
+	else
+	{
+		//Apply projectile damage
+	}
+
+	Destroy();
 }
 
 void AWarriorProjectileBase::OnProjectileBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
