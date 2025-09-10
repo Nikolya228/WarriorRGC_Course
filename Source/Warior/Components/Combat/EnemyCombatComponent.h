@@ -17,4 +17,8 @@ class WARIOR_API UEnemyCombatComponent : public UPawnCombatComponent
 public:
 
 	virtual void OnHitTargetActor(AActor* HitActor) override;
+
+protected:
+
+	void ToogleBodyCollisionBoxCollision(bool bShouldEnable, EToogleDamageType ToogleDamageType) override;
 };
