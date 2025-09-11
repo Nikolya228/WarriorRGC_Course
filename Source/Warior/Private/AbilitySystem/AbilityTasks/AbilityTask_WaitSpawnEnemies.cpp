@@ -7,7 +7,7 @@
 #include "NavigationSystem.h"
 #include "Characters/WarriorEnemyBaseCharacter.h"
 
-UAbilityTask_WaitSpawnEnemies* UAbilityTask_WaitSpawnEnemies::WaitSpawnEnemies(UGameplayAbility* OwningAbility, FGameplayTag EventTag, TSoftClassPtr<AWarriorEnemyBaseCharacter> SoftEnemyClassToSpawn, int32 NumToSpawn, const FVector& SpawnOrigin, const float RandomSpawnRadius, const FRotator& SpawnRotation)
+UAbilityTask_WaitSpawnEnemies* UAbilityTask_WaitSpawnEnemies::WaitSpawnEnemies(UGameplayAbility* OwningAbility, FGameplayTag EventTag, TSoftClassPtr<AWarriorEnemyBaseCharacter> SoftEnemyClassToSpawn, int32 NumToSpawn, const FVector& SpawnOrigin, const float RandomSpawnRadius)
 {
 	UAbilityTask_WaitSpawnEnemies* Node = NewAbilityTask<UAbilityTask_WaitSpawnEnemies>(OwningAbility);
 
@@ -16,7 +16,6 @@ UAbilityTask_WaitSpawnEnemies* UAbilityTask_WaitSpawnEnemies::WaitSpawnEnemies(U
 	Node->CachedNumToSpawn = NumToSpawn;
 	Node->CachedSpawnOrigin = SpawnOrigin;
 	Node->CachedRandomSpawnRadius = RandomSpawnRadius;
-	Node->CachedSpawnRotation = SpawnRotation;
 
 	return Node;
 }
@@ -85,7 +84,9 @@ void UAbilityTask_WaitSpawnEnemies::OnEnemyClassLoaded()
 
 		RandomLocation += FVector(0.f, 0.f, 150.f);
 
-		AWarriorEnemyBaseCharacter* SpawnedEnemy = World->SpawnActor<AWarriorEnemyBaseCharacter>(LoadedClass, RandomLocation, CachedSpawnRotation, SpawnParam);
+		const FRotator SpawnFacedRotation = AbilitySystemComponent->GetAvatarActor()->GetActorForwardVector().ToOrientationRotator();
+
+		AWarriorEnemyBaseCharacter* SpawnedEnemy = World->SpawnActor<AWarriorEnemyBaseCharacter>(LoadedClass, RandomLocation, SpawnFacedRotation, SpawnParam);
 
 		if (SpawnedEnemy)
 		{
