@@ -14,4 +14,6 @@ class WARIOR_API AWarriorStoneBase : public AWarriorPickUpBase
 {
 	GENERATED_BODY()
 	
+protected:
+	void OnPickUpCollisionSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) override;
 };
