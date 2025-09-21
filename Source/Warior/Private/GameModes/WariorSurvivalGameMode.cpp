@@ -22,7 +22,7 @@ void AWariorSurvivalGameMode::Tick(float DeltaTime)
 	{
 		TimePassedSinceStart += DeltaTime;
 
-		if (TimePassedSinceStart >= SpawnwWaveWaitTime)
+		if (TimePassedSinceStart >= SpawnNewWaveWaitTime)
 		{
 			TimePassedSinceStart = 0.f;
 

@@ -85,7 +85,7 @@ private:
 	float TimePassedSinceStart = 0.f;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "WaveDefinition", meta = (AllowPrivateAccess = "true"))
-	float SpawnwWaveWaitTime = 5.f;
+	float SpawnNewWaveWaitTime = 5.f;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "WaveDefinition", meta = (AllowPrivateAccess = "true"))
 	float SpawnEnemyDelayTime = 2.f;
