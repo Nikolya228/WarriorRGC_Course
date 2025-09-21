@@ -66,7 +66,9 @@ private:
 	void SetCurrentCurrentSurvivalGameModeState(EWarriorSurvivalGameModeState InState);
 	bool HasFinishedAllWaves() const;
 	void PreLoadNextWaveEnemies();
+	int32 TrySpawnWaveEnemies();
 	FWarriorEnemyWaveSpawnerTableRow* GetCurrentWaveSpawnerTableRow() const;
+	bool ShouldKeepSpawnEnemies() const;
 
 	UPROPERTY()
 	EWarriorSurvivalGameModeState CurrentSurvivalGameModeState;
@@ -82,6 +84,15 @@ private:
 
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "WaveDefinition", meta = (AllowPrivateAccess = "true"))
 	int32 CurrentWaveCount = 1;
+
+	UPROPERTY()
+	int32 CurrentSpawnedEnemiesCounter = 0;
+
+	UPROPERTY()
+	int32 TotalSpawnedEnemiesThisWaveCounter = 0;
+
+	UPROPERTY()
+	TArray<AActor*> TargetPointsArray;
 	
 	UPROPERTY()
 	float TimePassedSinceStart = 0.f;
