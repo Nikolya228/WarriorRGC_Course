@@ -70,6 +70,9 @@ private:
 	FWarriorEnemyWaveSpawnerTableRow* GetCurrentWaveSpawnerTableRow() const;
 	bool ShouldKeepSpawnEnemies() const;
 
+	UFUNCTION()
+	void OnEnemyDestroyed(AActor* DestroyedActor);
+
 	UPROPERTY()
 	EWarriorSurvivalGameModeState CurrentSurvivalGameModeState;
 
