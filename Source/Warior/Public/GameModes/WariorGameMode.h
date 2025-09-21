@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "Warior/WarriorTypes/WarriorEnumTypes.h"
 #include "WariorGameMode.generated.h"
 
 /**
@@ -16,4 +17,11 @@ class WARIOR_API AWariorGameMode : public AGameModeBase
 	
 public:
 	AWariorGameMode();
+
+protected:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Game Settings")
+	EWarriorGameDifficulty CurrentGameDifficulty;
+
+public:
+	FORCEINLINE EWarriorGameDifficulty GetCurrentGameDifficulty() const { return CurrentGameDifficulty; };
 };
