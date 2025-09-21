@@ -14,4 +14,6 @@ class WARIOR_API AWariorGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	AWariorGameMode();
 };

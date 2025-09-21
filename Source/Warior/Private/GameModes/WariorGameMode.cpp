@@ -3,3 +3,8 @@
 
 #include "GameModes/WariorGameMode.h"
 
+AWariorGameMode::AWariorGameMode()
+{
+	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bStartWithTickEnabled = true;
+}
