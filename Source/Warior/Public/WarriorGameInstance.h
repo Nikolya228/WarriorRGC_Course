@@ -12,7 +12,7 @@ struct FWarriorGameLevelSet
 {
 	GENERATED_BODY()
 
-	UPROPERTY(EditDefaultsOnly, meta = (Category = "GameData.Level"))
+	UPROPERTY(EditDefaultsOnly, meta = (Categories = "GameData.Level"))
 	FGameplayTag LevelTag;
 
 	UPROPERTY(EditDefaultsOnly)
@@ -37,6 +37,6 @@ protected:
 	TArray<FWarriorGameLevelSet> GameLevelSets;
 
 public:
-	UFUNCTION(BlueprintCallable, meta = (GameplayTagFilter = "GameData.Level"))
-	TSoftObjectPtr<UWorld> GetGameLevelByTag(FGameplayTag InTag);
+	UFUNCTION(BlueprintPure , meta = (GameplayTagFilter = "GameData.Level"))
+	TSoftObjectPtr<UWorld> GetGameLevelByTag(FGameplayTag InTag) const;
 };

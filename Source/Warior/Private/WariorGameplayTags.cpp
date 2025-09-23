@@ -110,7 +110,7 @@ namespace WarriorGameplayTags
 #pragma region GameData
 
 	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(GameData_Level_SurvivalGameModeMap, "GameData.Level.SurvivalGameModeMap");
-	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(GameData_Level_MainMap, "GameData.Level.MainMap");
+	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(GameData_Level_MainMenuMap, "GameData.Level.MainMenuMap");
 
 #pragma endregion
 
