@@ -58,8 +58,9 @@ class WARIOR_API AWariorSurvivalGameMode : public AWariorGameMode
 	
 protected:
 
-	virtual void BeginPlay() override;
-	virtual void Tick(float DeltaTime) override;
+	void InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage) override;
+	void BeginPlay() override;
+	void Tick(float DeltaTime) override;
 
 private:
 
