@@ -106,4 +106,12 @@ namespace WarriorGameplayTags
 	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(Shared_Status_Invincible, "Shared.Status.Invincible");
 
 #pragma endregion
+
+#pragma region GameData
+
+	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(GameData_Level_SurvivalGameModeMap, "GameData.Level.SurvivalGameModeMap");
+	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(GameData_Level_MainMap, "GameData.Level.MainMap");
+
+#pragma endregion
+
 }

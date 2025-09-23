@@ -109,4 +109,12 @@ namespace WarriorGameplayTags
 	WARIOR_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Shared_Status_Invincible);
 
 #pragma endregion
+
+#pragma region GameData
+
+	WARIOR_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(GameData_Level_SurvivalGameModeMap);
+	WARIOR_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(GameData_Level_MainMenuMap);
+
+#pragma endregion
+
 }
