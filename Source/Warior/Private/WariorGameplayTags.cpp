@@ -112,6 +112,8 @@ namespace WarriorGameplayTags
 	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(GameData_Level_SurvivalGameModeMap, "GameData.Level.SurvivalGameModeMap");
 	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(GameData_Level_MainMenuMap, "GameData.Level.MainMenuMap");
 
+	WARIOR_API UE_DEFINE_GAMEPLAY_TAG(GameData_SaveGame_Slot_1, "GameData.SaveGame.Slot.1");
+
 #pragma endregion
 
 }
